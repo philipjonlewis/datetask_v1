@@ -1,0 +1,186 @@
+@use '../abstracts' as *;
+
+.card-container {
+	@include dimensionsWH(20rem, 100%);
+	@include transition;
+	@include borderRadius();
+
+	height: 95%;
+	min-width: 20rem;
+	overflow: hidden;
+	padding: 1rem;
+	margin-left: 1.5rem;
+	margin-top: 1rem;
+	position: relative;
+	// background-color: blue;
+
+	.card-info-container {
+		@include flex(row, space-between, flex-start);
+		@include dimensionsWH(100%, 5rem);
+		color: $apple-gray-dark;
+
+		margin-top: 1rem;
+		// background-color: blue;
+		.card-info-date-container {
+			p:nth-of-type(1) {
+				@include logoType(1.4);
+			}
+
+			p:nth-of-type(2) {
+				@include logoType(1);
+			}
+
+			p:nth-of-type(3) {
+				@include logoType(0.7);
+				color: $apple-red;
+			}
+
+			.is-card-today {
+				color: $apple-red;
+			}
+		}
+
+		.card-info-options-container {
+			opacity: 0;
+			font-size: 1.8rem;
+		}
+
+		.card-menu-container {
+			@include flex(column, space-between, center);
+			@include transition();
+			@include fadeAnimation();
+			@include borderColorAll(0.5px, $apple-gray-light);
+			@include dimensionsWH(10rem, 6rem);
+			@include borderRadius();
+
+			padding: 0.5rem;
+			background-color: $white-warm;
+			position: absolute;
+			top: 2.6rem;
+			right: 3rem;
+
+			%card-edit-delete {
+				@include flex(row, flex-start, center);
+				@include dimensionsWH(100%, 50%);
+				@include logoType(0.8);
+				@include transition();
+				@include fadeAnimation();
+
+				padding-left: 0.5rem;
+				cursor: pointer;
+
+				p {
+					@include logoType(0.8);
+
+					padding-left: 0.5rem;
+				}
+			}
+
+			.delete-card-container {
+				@extend %card-edit-delete;
+				&:hover {
+					background-color: $apple-red;
+					color: $white-warm;
+				}
+			}
+
+			.edit-card-container {
+				@extend %card-edit-delete;
+				&:hover {
+					background-color: $apple-teal;
+					color: $white-warm;
+				}
+			}
+
+			.milestone-card-container {
+				@extend %card-edit-delete;
+				&:hover {
+					background-color: $apple-orange;
+					color: $white-warm;
+				}
+			}
+		}
+	}
+
+	.card-addtask-form-container {
+		@include flex(row, center, center);
+		@include dimensionsWH(100%, 4rem);
+
+		margin-top: 1rem;
+		opacity: 0;
+
+		input {
+			@include logoType(0.8);
+
+			border: none;
+			outline: none;
+
+			@include border(bottom);
+			@include dimensionsWH(90%, 2rem);
+			color: $apple-gray-dark;
+		}
+
+		div {
+			@include flex(column, center, center);
+			@include dimensionsWH(10%, 2rem);
+
+			color: $red;
+			font-size: 1.6rem;
+		}
+
+		.add-task-button {
+			@include flex(column, center, center);
+			@include transition;
+			@include borderRadius();
+
+			cursor: pointer;
+			background-color: transparent;
+			outline: none;
+			border: none;
+			color: $red;
+			font-size: $icon-size;
+
+			&:hover {
+				transform: scale(1.4);
+			}
+		}
+	}
+
+	.card-taskslist-container {
+		margin-top: 1rem;
+		// background-color: red;
+		height: 80%;
+		overflow-y: auto;
+		overflow-y: overlay;
+	}
+
+	&:hover {
+		@include boxShadow();
+		// @include borderRadius();
+	}
+
+	&:hover .card-addtask-form-container {
+		opacity: 1;
+	}
+
+	&:hover .card-info-options-container {
+		opacity: 1;
+	}
+
+	&:hover .task-container-icons {
+		opacity: 1;
+	}
+
+	&:hover .task-container-delete {
+		opacity: 1;
+	}
+
+	&:hover .card-addtaskcontainer {
+		opacity: 1;
+	}
+}
+
+.card-container:last-of-type {
+	// background-color: green;
+	margin-right: 1rem;
+}

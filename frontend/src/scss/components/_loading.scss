@@ -1,0 +1,59 @@
+@use '../abstracts' as *;
+
+
+@mixin commonLoadingCard() {
+	z-index: 500;
+	overflow: hidden;
+	// background-color: $white-warm;
+	margin: 1rem;
+}
+
+.loading-card-container {
+	@include flex(column, center, center);
+	@include commonLoadingCard();
+	@include fadeAnimation();
+	@include dim100();
+
+	display: block;
+	overflow: hidden;
+
+	div {
+		@include flex(column, center, center);
+		@include dim100();
+		overflow: hidden;
+
+		p {
+			@include logoType(1);
+		}
+	}
+}
+.loading-card-container-single {
+	@include flex(column, center, center);
+	@include commonLoadingCard();
+	@include fadeAnimation();
+	@include boxShadow();
+	@include dimensionsWH(20rem, 28rem);
+
+	display: inline-block;
+	border-radius: 0.5rem;
+
+	div {
+		@include flex(column, center, center);
+		@include dim100();
+
+		p {
+			@include logoType(1);
+		}
+	}
+}
+
+.loading-book-container {
+	@include dimensionsWH(100vw, 100vh);
+	@include fadeAnimation();
+	@include transition();
+	
+	div {
+		@include flex(column, center, center);
+		@include dim100();
+	}
+}

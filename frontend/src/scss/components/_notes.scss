@@ -1,0 +1,19 @@
+@use '../abstracts' as *;
+
+.notes-container {
+	@include flex(column, flex-start, center);
+	@include dim100();
+
+	&-header {
+		@include flex(row, flex-start, center);
+		@include border(bottom);
+		@include logoType(2);
+		@include dimensionsWH(100%, 6rem);
+
+		padding-left: 1rem;
+	}
+
+	&-body {
+		@include dimensionsWH(100%, 50%);
+	}
+}

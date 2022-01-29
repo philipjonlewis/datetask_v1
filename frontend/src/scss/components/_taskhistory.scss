@@ -1,0 +1,206 @@
+@use '../abstracts' as *;
+
+.lapsed-tasks-container {
+	@include transition;
+	@include fadeAnimation();
+	@include dimensionsWH(0, 100%);
+
+	transform: translateX(-1rem);
+	min-width: 0;
+	height: 100%;
+	background-color: $white-warm;
+	white-space: nowrap;
+	position: relative;
+	overflow-x: hidden;
+	overflow-y: overlay;
+	z-index: 50;
+	padding: 1rem 0 1rem 0.5rem;
+	// padding: 1rem;
+
+	// background-color: red;
+
+	.lapsed-card-container {
+		@include flex(column, flex-start, flex-start);
+		@include border(bottom);
+		width: 100%;
+		padding-bottom: 1rem;
+		padding-right: 2rem;
+		margin-bottom: 1rem;
+		height: 100%;
+
+		.lapsed-date-container {
+			@include flex(row, space-between, center);
+
+			color: $apple-gray-dark;
+			width: 100%;
+			height: 4rem;
+
+			.dates {
+				p:nth-of-type(1) {
+					@include logoType(1.4);
+					color: $apple-gray-dark;
+				}
+				p:nth-of-type(2) {
+					@include logoType(0.8);
+					color: $apple-gray-light;
+				}
+			}
+
+			.dropdown-btn-container {
+				@include flex(column, center, center);
+				width: 1.4rem;
+				height: 1.4rem;
+				font-size: 1.4rem;
+			}
+		}
+
+		.lapsed-drop-down {
+			@include fadeAnimation();
+			width: 100%;
+			height: 0;
+			overflow: hidden;
+			display: none;
+
+			.lapsed-label {
+				@include logoType(1);
+
+				padding: 0.5rem 0;
+				margin: 0.5rem 0;
+				width: 100%;
+				color: $apple-gray-dark;
+			}
+
+			.lapsed-division-container {
+				padding-left: 1rem;
+				margin-bottom: 1rem;
+
+				.empty-lapsed-label {
+					@include logoType(0.8);
+					color: $apple-orange;
+				}
+
+				.lapsed-proper {
+					@include dimensionsWH(100%, 2rem);
+					@include flex(column, flex-start, center);
+
+					margin-bottom: 0.8rem;
+
+					.lapsed-content-container {
+						@include flex(row, space-between, center);
+						@include dim100();
+
+						// background-color: red;
+
+						.content {
+							@include flex(row, flex-start, center);
+							@include dimensionsWH(90%, 100%);
+							@include logoType(0.8);
+
+							padding-left: 1rem;
+							white-space: nowrap;
+							overflow: hidden;
+							text-overflow: ellipsis;
+						}
+
+						.menu {
+							@include flex(row, space-between, center);
+							@include dimensionsWH(10%, 100%);
+							@include logoType(1.3);
+
+							opacity: 0.3;
+
+							.resched-lapsed {
+								cursor: pointer;
+								color: $apple-gray-dark;
+							}
+
+							.delete-lapsed {
+								cursor: pointer;
+								color: $apple-red;
+							}
+						}
+
+						&:hover {
+							background-color: rgb(245, 245, 245);
+							.menu {
+								opacity: 1;
+							}
+						}
+					}
+				}
+
+				.is-normal-lapsed-content {
+					@include borderNormal();
+
+					.lapsed-content-container {
+						.content {
+							color: $apple-gray-dark;
+						}
+					}
+				}
+
+				.is-priority-lapsed-content {
+					@include borderPriority();
+
+					.lapsed-content-container {
+						.content {
+							color: $apple-orange;
+						}
+					}
+				}
+			}
+		}
+
+		.drop-down-activate {
+			display: block;
+			height: 100%;
+		}
+	}
+
+	.close-lapsed-form-btn-container {
+		@include dimensionsWH(1.4rem, 1.4rem);
+
+		position: absolute;
+		z-index: 50;
+		top: 1rem;
+		right: 1rem;
+		font-size: 1.4rem;
+		color: $apple-red;
+	}
+
+	.lapsed-header-container {
+		@include flex(column, flex-start, flex-start);
+		@include transition();
+		// @include border(bottom);
+
+		width: 95%;
+		padding: 3rem 1rem 2rem 0;
+
+		// background-color: yellow;
+		p:nth-of-type(1) {
+			@include logoType(1.6);
+
+			text-align: left;
+			color: $apple-gray-dark;
+			// color: $apple-red;
+			// color: #4b4b91;
+		}
+
+		p:nth-of-type(2) {
+			text-align: left;
+			font-size: 14px;
+			color: $apple-gray-light;
+		}
+	}
+}
+
+.lapsed-slide-right {
+	transform: translateX(0);
+	@include boxShadow();
+	height: 100%;
+	min-width: 43rem;
+	padding-left: 1rem;
+	// background-color: $bg-gray;
+
+	// margin-right: 1rem;
+}

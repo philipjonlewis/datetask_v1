@@ -1,0 +1,22 @@
+@use '../abstracts' as *;
+
+
+.projecttimeline-container {
+	@include dim100();
+	// background-color: $bg-gray;
+	position: relative;
+
+	.projecttimeline-infopanel-container {
+		@include flex(row, space-between, flex-start);
+		@include dimensionsWH(100%, 100%);
+
+		position: absolute;
+		top: 0;
+		left: 0;
+
+		.projecttimeline-proper {
+			@include dim100();
+			z-index: 0;
+		}
+	}
+}

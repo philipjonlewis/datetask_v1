@@ -1,0 +1,199 @@
+@use '../abstracts' as *;
+
+.infopanel-container {
+	@include transition;
+	@include dim100();
+
+	padding: 1rem 4rem 1rem 3rem;
+	position: relative;
+	overflow: hidden;
+	.add-phase-slider-btn-container {
+		width: 2.4rem;
+		height: 2.4rem;
+
+		position: absolute;
+		top: 1rem;
+		right: 1rem;
+		z-index: 50;
+		font-size: 2.4rem;
+		color: $apple-red;
+		background-color: transparent;
+	}
+
+	.project-data-container {
+		@include dim100();
+
+		// background-color: yellow;
+
+		.project-infopanel-container {
+			@include flex(row, flex-start, center);
+			@include border(bottom);
+
+			height: 10rem;
+			padding-bottom: 1rem;
+
+			.project-details {
+				@include flex(column, center, space-between);
+				@include border(right);
+				height: 100%;
+
+				width: 20rem;
+
+				%shared-project-info {
+					padding-bottom: 0.5rem;
+				}
+
+				.project-name {
+					@include logoType(1.8);
+					@extend %shared-project-info;
+
+					color: $apple-red;
+				}
+
+				.project-description {
+					@include logoType(0.9);
+					@extend %shared-project-info;
+
+					color: $apple-gray-dark;
+				}
+
+				.project-nature {
+					@include logoType(0.8);
+					@extend %shared-project-info;
+
+					color: $apple-gray-light;
+				}
+			}
+
+			%shared-infopanel {
+				@include flex(column, space-around, center);
+				@include border(right);
+				height: 100%;
+				// width: 20rem;
+			}
+
+			%shared-date-info {
+				text-align: left;
+
+				p:nth-of-type(1) {
+					@include logoType(0.8);
+
+					color: $apple-gray-light;
+				}
+
+				p:nth-of-type(2) {
+					@include logoType(1);
+
+					padding-bottom: 0.5rem;
+					color: $apple-gray-dark;
+				}
+			}
+
+			.project-date {
+				@include flex(column, center, flex-start);
+				padding: 1rem;
+				height: 100%;
+
+				.created-container {
+					p:nth-of-type(1) {
+						@include logoType(0.8);
+
+						color: $apple-gray-light;
+					}
+
+					p:nth-of-type(2) {
+						@include logoType(0.9);
+
+						padding-bottom: 0.5rem;
+						color: $apple-red;
+					}
+				}
+				.deadline-container {
+					p:nth-of-type(1) {
+						@include logoType(0.8);
+
+						color: $apple-gray-light;
+					}
+
+					p:nth-of-type(2) {
+						@include logoType(0.9);
+
+						padding-bottom: 0.5rem;
+						color: $apple-red;
+					}
+				}
+			}
+
+			.project-deadline-count {
+				@extend %shared-infopanel;
+
+				.days-lapsed {
+					@extend %shared-date-info;
+
+					p:nth-of-type(2) {
+						color: $apple-red;
+					}
+				}
+
+				.days-till-deadline {
+					@extend %shared-date-info;
+
+					p:nth-of-type(2) {
+						color: $apple-red;
+					}
+				}
+			}
+
+			.project-overall-task-count {
+				@extend %shared-infopanel;
+				width: 20rem;
+
+				.overall {
+					@extend %shared-date-info;
+
+					p:nth-of-type(2) {
+						color: $apple-red;
+					}
+				}
+
+				.active {
+					@extend %shared-date-info;
+
+					p:nth-of-type(2) {
+						color: $apple-red;
+					}
+				}
+
+				.completed {
+					@extend %shared-date-info;
+
+					p:nth-of-type(2) {
+						color: $apple-red;
+					}
+				}
+
+				.lapsed {
+					@extend %shared-date-info;
+
+					p:nth-of-type(2) {
+						color: $apple-red;
+					}
+				}
+			}
+
+			.task-completion-daily {
+				@extend %shared-infopanel;
+				// border: none;
+				width: 10rem;
+
+				.daily-completion {
+					@extend %shared-date-info;
+
+					p:nth-of-type(2) {
+						color: $apple-red;
+					}
+				}
+			}
+		}
+	}
+}

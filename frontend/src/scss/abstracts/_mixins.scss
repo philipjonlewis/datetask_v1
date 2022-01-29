@@ -1,0 +1,89 @@
+@use 'colors' as *;
+@use 'fonts' as *;
+
+@mixin border($direction) {
+	border-#{$direction}: 0.5px solid $apple-gray-light;
+}
+
+@mixin borderColor($direction, $color) {
+	border-#{$direction}: 0.5px solid #{$color};
+}
+
+@mixin borderColorAll($width, $color) {
+	border: #{$width} solid #{$color};
+}
+
+@mixin borderPriority() {
+	border-left: 2px solid $apple-orange;
+}
+
+@mixin borderNormal() {
+	border-left: 2px solid $apple-gray-light;
+}
+
+@mixin borderPriorityToday() {
+	border-left: 2px solid $apple-red;
+}
+
+@mixin transition {
+	transition: 0.5s all ease;
+}
+
+@mixin flex($direction, $justify, $align) {
+	display: flex;
+	flex-direction: #{$direction};
+	justify-content: #{$justify};
+	align-items: #{$align};
+}
+
+@mixin logoType($fontSize) {
+	font-family: 'Poppins', sans-serif;
+	font-weight: 600;
+	font-size: #{$fontSize}rem;
+}
+
+@mixin dimensionsWH($width, $height) {
+	width: $width;
+	height: $height;
+}
+
+@mixin dim100() {
+	width: 100%;
+	height: 100%;
+}
+
+@mixin centerBackground($url) {
+	background-image: url($url);
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+}
+
+@mixin boxShadow() {
+	box-shadow: 0px 5px 5px 0px #32323280;
+}
+
+@mixin borderRadius() {
+	border-radius: 0.5rem;
+}
+
+@mixin scaleHover() {
+	transform: scale(1.2);
+}
+
+.iconify {
+	cursor: pointer;
+}
+
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@mixin fadeAnimation() {
+	animation: 0.5s ease 0s 1 fadeIn;
+}

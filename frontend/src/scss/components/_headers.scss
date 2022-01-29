@@ -1,0 +1,65 @@
+@use '../abstracts' as *;
+
+
+.upper-navbar-container {
+	@include flex(row, space-between, flex-start);
+	padding: 1rem;
+	height: 50%;
+	// background-color: $bg-gray;
+	// color: $white-warm;
+	.upper-navbar-title {
+		@include logoType(1.2);
+	}
+
+	.upper-navbar-info-container {
+		@include flex(row, space-between, center);
+		margin-right: 0.2rem;
+		height: 100%;
+
+		.upper-navbar-search-container {
+			@include border(right);
+			margin-right: 1rem;
+			padding-right: 1rem;
+
+			.iconify {
+				font-size: $icon-size;
+				margin-right: 0.5rem;
+			}
+		}
+
+		.upper-navbar-user-container {
+			@include flex(row, space-between, center);
+
+			.iconify {
+				font-size: $icon-size;
+			}
+
+			p {
+				padding: 0 1rem;
+				font-weight: bold;
+			}
+		}
+	}
+}
+
+.lower-navbar-container {
+	@include flex(row, space-between, center);
+	padding: 1rem;
+	height: 50%;
+	// background-color: $bg-gray;
+	// color: $white-warm;
+
+	.lower-navbar-subtitle {
+		font-size: 0.7rem;
+		font-weight: 400;
+		color: $gray-dark;
+	}
+
+	.lower-navbar-alert-container {
+		margin-right: 0.2rem;
+		.iconify {
+			font-size: $icon-size;
+			margin-left: 0.5rem;
+		}
+	}
+}

@@ -1,0 +1,127 @@
+@use '../abstracts' as *;
+
+
+.sidebar-container {
+	// @include border(right);
+	@include transition();
+	// @include boxShadow();
+	box-shadow: 5px 0 2px -2px #bdbdbd;
+
+	position: relative;
+	overflow: hidden;
+	height: 100vh;
+	background-color: #232538;
+	background-color: #272a31;
+	// background-color: #131639;
+	color: $white-warm;
+
+	z-index: 1000;
+	&-constant {
+		@include flex(column, space-between, center);
+
+		position: absolute;
+		right: 1rem;
+		height: 100%;
+		padding: 1rem 0;
+	}
+
+	.sidebar-link {
+		@include flex(column, center, center);
+
+		font-size: $icon-size;
+		margin-top: 0.3rem;
+		cursor: pointer;
+		z-index: 100;
+
+		.menu-icon {
+			@include dimensionsWH(2rem, 2rem);
+			@include flex(column, center, center);
+
+			font-size: 1.4rem;
+			// background-color: red;
+		}
+	}
+
+	&-logo {
+		@include transition();
+
+		position: absolute;
+		top: 0.6rem;
+		left: 1rem;
+		cursor: pointer;
+
+		.logo {
+			@include logoType(1.5);
+
+			color: $apple-blue;
+			color: #4af6c4;
+			color: $white-warm;
+			// color: $apple-blue;
+			// color: #4b4b91;
+		}
+	}
+}
+
+.sidebar-compact {
+	@include flex(column, flex-start, center);
+	@include dim100();
+	margin-top: 5rem;
+	position: absolute;
+
+	&-container {
+		@include flex(row, center, center);
+		@include dimensionsWH(100%, 3rem);
+		@include transition();
+
+		position: relative;
+
+		p {
+			position: absolute;
+			left: 4rem;
+			font-size: $link-size;
+			font-weight: bold;
+		}
+
+		&-link {
+			@include flex(row, flex-start, center);
+
+			position: absolute;
+			left: 1.3rem;
+			font-size: $icon-size;
+		}
+
+		&:hover {
+			background-color: $apple-blue;
+			// background-color: #4af6c4;
+			background-color: $apple-gray-dark;
+			color: #131639;
+			color: $white-warm;
+			// color: $apple-gray-dark;
+		}
+	}
+}
+
+.logout {
+	cursor: pointer;
+	position: absolute;
+	bottom: 8rem;
+
+	color: $apple-red;
+	&:hover {
+		background-color: $orange;
+		color: $white-warm;
+	}
+}
+
+.active-navlink {
+	// color: #4af6c4;
+	// border-top: 1px solid #4af6c4;
+	// border-bottom: 1px solid #4af6c4;
+
+	background-color: #4af6c4;
+	// background-color: $apple-blue;
+	background-color: $orange;
+	color: #131639;
+	color: #272a31;
+	color: $white-warm;
+}

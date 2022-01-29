@@ -1,0 +1,121 @@
+@use '../abstracts' as *;
+
+
+.add-phase-form-container {
+	@include transition;
+	@include boxShadow();
+
+	height: 100%;
+	position: absolute;
+	top: 0;
+	right: 0;
+	background-color: $white-warm;
+
+	overflow: hidden;
+	white-space: nowrap;
+
+	.add-phase-header-container {
+		@include flex(column, flex-start, flex-start);
+		@include transition();
+
+		width: 100%;
+		padding: 4rem 0 2rem 1rem;
+
+		p:nth-of-type(1) {
+			@include logoType(1.6);
+
+			text-align: left;
+			color: $apple-red;
+		}
+
+		p:nth-of-type(2) {
+			text-align: left;
+			color: $apple-gray-dark;
+		}
+	}
+
+	.phase-list-container {
+		@include flex(column, flex-start, flex-start);
+		@include dimensionsWH(100%, 24rem);
+
+		background-color: yellow;
+		padding: 1rem;
+
+		.phase-list-header {
+			@include dimensionsWH(100%, 10%);
+
+			@include logoType(1.2);
+			@include border(bottom);
+		}
+	}
+
+	.add-phase-form {
+		padding: 1rem;
+		margin: 0 0 1rem 0;
+
+		%add-phase-form {
+			@include dimensionsWH(100%, 100%);
+
+			padding-top: 1rem;
+
+			label {
+				@include dimensionsWH(100%, 40%);
+				@include logoType(0.8);
+				display: block;
+				color: $apple-gray-dark;
+			}
+
+			input,
+			textarea {
+				border: none;
+				outline: none;
+
+				@include dimensionsWH(100%, 60%);
+				@include border(bottom);
+
+				font-weight: 600;
+				padding: 0.5rem 0 0.5rem 1rem;
+				font-size: 1rem;
+
+				&::placeholder {
+					font-weight: 400;
+					font-size: 0.8rem;
+					opacity: 0.6;
+				}
+			}
+
+			select {
+				border: none;
+				outline: none;
+
+				@include dimensionsWH(100%, 60%);
+				@include border(bottom);
+
+				font-weight: 600;
+				padding: 0.5rem 0 0.5rem 1rem;
+				font-size: 1rem;
+			}
+		}
+
+		.add-phase-input-container {
+			@extend %add-phase-form;
+		}
+
+		.add-phase-btn-container {
+			@include flex(row, center, center);
+			@include dimensionsWH(100%, 2.5rem);
+			@include logoType(0.8);
+			@include transition();
+			@include borderColorAll(2px, $apple-red);
+
+			cursor: pointer;
+			margin: 1rem 0 1rem 0;
+			background-color: $apple-red;
+			color: $white-warm;
+
+			&:hover {
+				@include boxShadow();
+			}
+		}
+	}
+}

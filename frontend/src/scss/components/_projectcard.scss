@@ -1,0 +1,114 @@
+@use '../abstracts' as *;
+
+
+@mixin cardContainer() {
+	@include flex(column, center, center);
+	@include dimensionsWH(20rem, 28rem);
+	@include fadeAnimation();
+	@include transition();
+
+	z-index: 0;
+	display: inline-block;
+	overflow: hidden;
+	background-color: $white-warm;
+	margin: 1rem;
+	// margin-left: 1rem;
+	// margin-top: 1rem;
+
+	&:hover {
+		@include boxShadow();
+		@include borderRadius();
+	}
+}
+
+.project-card-container {
+	@include cardContainer();
+
+	.delete-project-btn-container {
+		position: relative;
+		opacity: 0.3;
+		.delete-btn {
+			@include borderRadius();
+			position: absolute;
+			background-color: $white-warm;
+			width: 2rem;
+			height: 2rem;
+			font-size: 2rem;
+			right: 0.5rem;
+			top: 0.5rem;
+
+			&:hover {
+				background-color: $red;
+				color: $white-warm;
+			}
+		}
+
+		&:hover {
+			opacity: 1;
+			background-color: $red;
+		}
+	}
+
+	.image-container {
+		@include dimensionsWH(100%, 75%);
+
+		img {
+			height: 100%;
+		}
+	}
+	.text-container {
+		@include transition();
+
+		z-index: 0;
+		position: relative;
+		padding: 1.3rem 0;
+
+		.project-name {
+			@include logoType(1);
+		}
+		.project-description {
+			font-size: 14px;
+		}
+
+		.project-nature {
+			@include transition();
+
+			position: absolute;
+			font-size: 12px;
+			color: $gray-dark;
+			left: 0;
+			top: 0.3rem;
+		}
+
+		.enter-project {
+			@include flex(row, flex-start, center);
+			@include transition();
+
+			cursor: pointer;
+			margin-top: 0.5rem;
+
+			.iconify {
+				font-size: 2rem;
+				margin-right: 0.5rem;
+			}
+
+			p {
+				@include logoType(0.8);
+			}
+
+			&:hover {
+				transform: translateX(10px);
+				color: $apple-red;
+			}
+		}
+	}
+	&:hover {
+		.text-container {
+			padding: 1.3rem 1rem;
+		}
+
+		.project-nature {
+			left: 1rem;
+		}
+	}
+}

@@ -1,0 +1,65 @@
+@use './abstracts' as *;
+
+
+.sample {
+	background-color: $red;
+}
+
+
+
+// @use './landing' as *;
+// @use './workspace';
+
+// // Home CSS
+// @use '../components/dashboard/dashboard';
+// // Notes CSS
+// @use '../components/notes/notes';
+// // Data CSS
+// @use '../components/statistics/statistics';
+
+// @use '../components/headers/headers';
+// @use '../components/sidebar/sidebar';
+// @use '../components/loaders/loading';
+// @use '../components/login/login';
+// @use '../components/signup/signup';
+// @use '../components/landingcontent/landingcontent';
+
+// @use '../components/projectboard/projectboard';
+// @use '../components/projectboard/cardboard/cardboard';
+// @use '../components/projectboard/taskhistory/taskhistory';
+
+// @use '../components/projectboard/addresourceforms/addprojectform/addprojectform';
+// @use '../components/projectboard/addresourceforms/addphaseform/addphaseform';
+// @use '../components/projectboard/addresourceforms/addtaskcardform/addtaskcardform';
+
+// @use '../components/projectboard/projectcard/projectcard';
+// @use '../components/projectboard/cardcontainer/cardcontainer';
+// @use '../components/projectboard/projecttimeline/projecttimeline';
+
+// @use '../components/projectboard/infopanel/infopanel';
+// @use '../components/projectboard/phasecontainer/phasecontainer';
+// @use '../components/projectboard/cardcontainer/taskcontainer/taskcontainer';
+// @use '../components/projectboard/cardcontainer/cardcontainer';
+
+// // Done
+// .container {
+// 	height: 100vh;
+// 	width: 100vw;
+// 	background-color: $white-warm;
+// 	@include flex(row, flex-start, flex-start);
+// 	overflow: hidden;
+// }
+
+// // Done
+// .workboard-container {
+// 	height: 100%;
+// 	width: 100%;
+// }
+
+// .display-none {
+// 	display: none;
+// }
+
+// .display-block {
+// 	display: block;
+// }

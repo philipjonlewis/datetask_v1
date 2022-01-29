@@ -1,0 +1,141 @@
+@use '../abstracts' as *;
+
+.login-form-container {
+	@include flex(column, center, center);
+	@include border(bottom);
+	@include dimensionsWH(100vw, 100%);
+
+	overflow: hidden;
+	width: 100%;
+
+	.login-form-proper {
+		@include flex(column, flex-start, center);
+		@include dimensionsWH(70%, 100%);
+
+		.login-alert-container {
+			@include flex(row, flex-start, center);
+			@include dimensionsWH(100%, 30%);
+			@include logoType(0.8);
+
+			padding-left: 1rem;
+			.login-alert-message {
+			}
+		}
+
+		.login-container {
+			@include dimensionsWH(100%, 60%);
+			@include flex(row, space-between, center);
+
+			.login-internal-container {
+				@include dimensionsWH(60%, 100%);
+
+				.username-password-container {
+					@include flex(row, center, center);
+					@include dimensionsWH(100%, 3rem);
+
+					%login-form {
+						@include dimensionsWH(39%, 100%);
+
+						label {
+							@include dimensionsWH(100%, 40%);
+							// @include logoType(0.7);
+							font-size: 0.8rem;
+							display: block;
+							color: $gray-light;
+						}
+
+						input {
+							border: none;
+							outline: none;
+
+							@include dimensionsWH(100%, 60%);
+							@include border(bottom);
+
+							font-weight: 600;
+							padding-left: 1rem;
+							font-size: 1rem;
+
+							&::placeholder {
+								font-weight: 400;
+								font-size: 0.8rem;
+								opacity: 0.6;
+							}
+						}
+					}
+
+					// background-color: red;
+					.login-username-container {
+						@extend %login-form;
+						margin-right: auto;
+					}
+
+					.login-password-container {
+						@extend %login-form;
+						margin-left: auto;
+					}
+				}
+
+				.login-btn-container {
+					@include flex(row, center, center);
+					@include dimensionsWH(8rem, 2.5rem);
+					@include logoType(0.8);
+					@include transition();
+					@include borderColorAll(2px, $gray-light);
+
+					cursor: pointer;
+					margin: auto 1.1rem 0 1rem;
+					background-color: $gray-light;
+					color: $white-warm;
+
+					&:hover {
+						@include borderColorAll(2px, $gray-dark);
+						background-color: $gray-dark;
+					}
+				}
+			}
+
+			.login-external-container {
+				@include dimensionsWH(40%, 100%);
+				@include flex(row, space-around, center);
+				@include border(right);
+
+				margin-right: 1rem;
+
+				.login-external-text-container {
+					@include logoType(1);
+				}
+
+				.external-logo-container {
+					@include flex(column, center, center);
+					@include transition();
+
+					cursor: pointer;
+					font-size: 1rem;
+					color: $gray-light;
+
+					&:hover {
+						color: $gray-dark;
+					}
+
+					p {
+						@include logoType(0.8);
+
+						padding: 0.5rem;
+					}
+				}
+			}
+		}
+	}
+}
+
+.login-form-opened {
+	@include transition();
+	box-shadow: inset 0 0 3px $apple-gray-light;
+
+	height: 6rem;
+}
+.login-form-closed {
+	@include transition();
+	box-shadow: none;
+	height: 0;
+}

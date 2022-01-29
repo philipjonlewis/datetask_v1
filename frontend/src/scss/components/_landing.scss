@@ -1,0 +1,121 @@
+@use '../abstracts' as *;
+
+.landingPage-container {
+	@include flex(column, flex-start, center);
+	@include dimensionsWH(100vw, 100%);
+	overflow: hidden;
+	position: relative;
+
+}
+
+.navbar-container {
+	@include flex(row, center, center);
+	@include dimensionsWH(100%, 5rem);
+	@include border(bottom);
+
+	min-height: 5rem;
+	background-color: $white-warm;
+
+	.navbar-proper {
+		@include flex(row, center, center);
+
+		// position: relative;
+		min-width: 70%;
+
+		.logo-container {
+			margin-right: auto;
+
+			.logo {
+				@include logoType(1.5);
+
+				cursor: pointer;
+			}
+		}
+
+		.access-container {
+			@include flex(row, center, center);
+			margin-left: auto;
+
+			%access-btn-container {
+				@include flex(row, center, center);
+				@include dimensionsWH(8rem, 2.5rem);
+				@include logoType(0.8);
+				@include transition();
+
+				cursor: pointer;
+				padding: 0.5rem 2rem;
+				margin: 0 1rem;
+				font-size: 1rem;
+			}
+
+			.signup-btn-container {
+				@extend %access-btn-container;
+				@include borderColorAll(2px, $apple-blue);
+				@include transition();
+
+				background-color: $apple-blue;
+				color: $white-warm;
+
+				&:hover {
+					@include borderColorAll(2px, $apple-blue);
+					color: $apple-blue;
+
+					background-color: transparent;
+				}
+			}
+
+			.login-btn-container {
+				@extend %access-btn-container;
+				border: none;
+				// @include borderColorAll(2px, $apple-blue);
+				// color: $apple-blue;
+
+				&:hover {
+					color: $apple-blue;
+				}
+			}
+		}
+	}
+}
+
+%login-frosted-standard {
+	@include transition();
+	@include fadeAnimation();
+	@include dim100();
+	// @include dimensionsWH(100vw, 100%);
+	overflow: hidden;
+	position: absolute;
+}
+
+.login-frosted {
+	@extend %login-frosted-standard;
+
+	background-color: rgba(255, 255, 255, 0.15);
+	backdrop-filter: blur(5px);
+}
+
+.login-unfrosted {
+	@extend %login-frosted-standard;
+	backdrop-filter: blur(0px);
+}
+
+%signup-frosted-standard {
+	@include transition();
+	@include fadeAnimation();
+	@include dim100();
+
+	z-index: 20;
+	position: absolute;
+}
+
+.signup-frosted {
+	@extend %signup-frosted-standard;
+
+	background-color: rgba(255, 255, 255, 0.15);
+	backdrop-filter: blur(5px);
+}
+
+.signup-unfrosted {
+	@extend %signup-frosted-standard;
+	backdrop-filter: blur(0px);
+}

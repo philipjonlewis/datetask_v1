@@ -1,0 +1,157 @@
+@use '../abstracts' as *;
+
+
+.signup-form-container {
+	@include flex(column, center, center);
+	@include transition();
+	@include fadeAnimation();
+	@include boxShadow();
+
+	position: absolute;
+	margin: 15vh;
+	z-index: 50;
+	overflow: hidden;
+
+	.signup-form-proper {
+		@include flex(row, space-between, center);
+		@include dimensionsWH(60vw, 70vh);
+
+		background-color: $white-warm;
+
+		.signup-leftside-container {
+			@include dimensionsWH(50%, 100%);
+
+			color: $white-warm;
+			padding: 1rem;
+			background-image: url('https://miro.medium.com/max/1600/0*Lb0eLw_U7seEfOnN.png');
+			background-repeat: no-repeat;
+			background-attachment: scroll;
+			background-position: center;
+			background-size: cover;
+		}
+
+		.signup-rightside-container {
+			@include dimensionsWH(50%, 100%);
+
+			padding: 1rem;
+
+			.signup-text-container {
+				@include logoType(2);
+				// @include border(bottom);
+
+				padding-bottom: 0.5rem;
+				width: 100%;
+				color: $apple-blue;
+			}
+
+			.signup-error-container {
+				@include logoType(1);
+
+				margin: 0.5rem 0 0.5rem 0;
+				padding: 0.5rem 0 0.5rem 1rem;
+				color: $white-warm;
+				background-color: $apple-red;
+			}
+
+			.signup-form {
+				margin: 1rem 0 1rem 0;
+
+				%signup-form {
+					@include dimensionsWH(100%, 100%);
+
+					padding-top: 1rem;
+
+					label {
+						@include dimensionsWH(100%, 40%);
+						@include logoType(0.8);
+						display: block;
+						color: $apple-gray-dark;
+					}
+
+					input {
+						border: none;
+						outline: none;
+
+						@include dimensionsWH(100%, 60%);
+						@include border(bottom);
+
+						font-weight: 600;
+						padding: 0.5rem 0 0.5rem 1rem;
+						font-size: 1rem;
+
+						&::placeholder {
+							font-weight: 400;
+							font-size: 0.8rem;
+							opacity: 0.6;
+						}
+					}
+				}
+
+				.signup-names-container {
+					@include flex(row, space-between, center);
+
+					.signup-input-container {
+						width: 48%;
+					}
+				}
+
+				.signup-input-container {
+					@extend %signup-form;
+				}
+
+				.signup-btn-container {
+					@include flex(row, center, center);
+					@include dimensionsWH(100%, 2.5rem);
+					@include logoType(0.8);
+					@include transition();
+					@include borderColorAll(2px, $apple-blue);
+
+					cursor: pointer;
+					margin: 1rem 0 1rem 0;
+					background-color: $apple-blue;
+					color: $white-warm;
+
+					&:hover {
+						@include boxShadow();
+					}
+				}
+			}
+
+			.signup-or-container {
+				@include flex(column, space-between, center);
+				@include border(bottom);
+				@include border(top);
+				@include logoType(0.8);
+
+				width: 100%;
+				margin: 1rem 0 1.5rem 0;
+				padding: 0.5rem 0 0.5rem 0;
+			}
+
+			.external-login-container {
+				@include flex(row, space-around, center);
+
+				width: 100%;
+
+				.external-logo-container {
+					@include flex(column, center, center);
+					@include transition();
+
+					cursor: pointer;
+					font-size: 1rem;
+					color: $gray-light;
+
+					&:hover {
+						color: $gray-dark;
+					}
+
+					p {
+						@include logoType(0.8);
+
+						padding: 0.5rem;
+					}
+				}
+			}
+		}
+	}
+}

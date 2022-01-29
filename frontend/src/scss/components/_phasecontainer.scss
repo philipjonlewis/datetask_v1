@@ -1,0 +1,90 @@
+@use '../abstracts' as *;
+
+// Phaseboard
+.phasecontainer-container {
+	@include flex(row, flex-start, center);
+	@include border(bottom);
+	box-shadow: 0px 5px 4px -5px #cccccc;
+	@include dimensionsWH(100%, 3rem);
+	position: relative;
+	padding-right: 1rem;
+	overflow: visible;
+	// background-color: $bg-gray;
+
+	.project-infoboard-container {
+		@include flex(column, center, center);
+		@include border(right);
+		@include dimensionsWH(3rem, 100%);
+		@include transition();
+
+		min-width: 3rem;
+		font-size: 1.4rem;
+		color: rgb(209, 209, 214);
+
+		&:hover {
+			color: $apple-red;
+		}
+	}
+
+	.infoboard-active {
+		// color: $apple-gray-dark;
+		color: $apple-red;
+		// color: #4b4b91;
+	}
+
+	.phasename-container {
+		@include flex(row, flex-start, center);
+		@include border(right);
+		@include dimensionsWH(21.5rem, 50%);
+
+		// min-width: 21.5rem;
+		padding-left: 1rem;
+		text-overflow: ellipsis;
+
+		button {
+			@include transition;
+			@include logoType(0.8);
+
+			cursor: pointer;
+			border: none;
+			outline: none;
+			background-color: transparent;
+			color: rgb(209, 209, 214);
+
+			&:hover {
+				color: $apple-red;
+			}
+		}
+
+		.empty-phase-message {
+			@include logoType(0.7);
+			color: $apple-gray-light;
+		}
+	}
+
+	.empty-phase-container {
+		border: none;
+	}
+
+	.active-phase {
+		button {
+			// @include logoType(0.85);
+			color: $apple-red;
+		}
+	}
+
+	.add-phase-btn-container {
+		@include flex(column, center, center);
+		@include dimensionsWH(3rem, 100%);
+
+		min-width: 3rem;
+		font-size: 1.6rem;
+	}
+
+	.addphase-form-container {
+		position: absolute;
+		z-index: 100;
+		top: 6rem;
+		right: 3rem;
+	}
+}

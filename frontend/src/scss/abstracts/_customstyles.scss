@@ -1,0 +1,175 @@
+@use 'colors' as *;
+@use 'mixins' as *;
+
+.transform-45 {
+	transform: rotate(45deg);
+	transform-origin: center center;
+}
+
+.transform-180 {
+	transform: rotate(180deg);
+	transform-origin: center center;
+}
+
+.sidebar-small {
+	min-width: 4rem;
+}
+
+.sidebar-big {
+	min-width: 18rem;
+}
+
+.sidebar-hide {
+	width: 0;
+}
+
+.add-project-big {
+	width: 24rem;
+}
+
+.add-phase-big {
+	width: 24rem;
+}
+
+.add-taskcard-big {
+	width: 24rem;
+}
+
+.add-taskcard-small {
+	width: 0;
+}
+
+.add-project-slide {
+	transform: translateX(600px);
+}
+
+.logo-move-left {
+	transform: translateX(-10rem);
+}
+
+.move-right {
+	transform: translateX(24rem);
+}
+
+.container {
+	@include flex(row, flex-start, flex-start);
+	height: 100vh;
+	width: 100vw;
+	background-color: $white-warm;
+	overflow: hidden;
+}
+
+// Done
+.workboard-container {
+	height: 100%;
+	width: 100%;
+}
+
+.display-none {
+	display: none;
+}
+
+.display-block {
+	display: block;
+}
+
+.error-container {
+	@include flex(column, center, center);
+	@include dim100();
+	position: relative;
+
+	.error-image {
+		@include flex(column, center, center);
+		@include dimensionsWH(50%, 50%);
+
+		position: absolute;
+
+		top: 10%; // background-color: red;
+		svg {
+			width: 100%;
+		}
+	}
+
+	.error-message {
+		@include flex(column, center, center);
+
+		p:nth-of-type(1) {
+			@include logoType(4);
+			color: $apple-red;
+		}
+
+		p:nth-of-type(2) {
+			@include logoType(1);
+			color: $apple-red;
+		}
+
+		p:nth-of-type(3) {
+			@include logoType(0.85);
+			color: $apple-gray-light;
+		}
+
+		p:nth-of-type(4) {
+			@include logoType(1);
+			@include borderRadius();
+
+			margin: 1rem;
+			padding: 1rem;
+			background-color: $apple-red;
+			color: $white-warm;
+		}
+
+		position: absolute;
+		top: 45%;
+	}
+	// background-color: red;
+}
+.empty-container {
+	@include flex(column, center, center);
+	@include dim100();
+	position: relative;
+
+	.empty-image {
+		@include flex(column, center, center);
+		@include dimensionsWH(50%, 50%);
+
+		position: absolute;
+		top: 10%; // background-color: red;
+
+		img {
+			width: 80%;
+		}
+	}
+
+	.empty-message {
+		@include flex(column, center, center);
+		position: absolute;
+		top: 60%;
+
+		p:nth-of-type(1) {
+			@include logoType(4);
+			color: $apple-blue;
+			// color: $gameboy-purple;
+		}
+
+		p:nth-of-type(2) {
+			@include logoType(1);
+			color: $apple-blue;
+		}
+
+		p:nth-of-type(3) {
+			@include logoType(0.85);
+			color: $apple-gray-light;
+		}
+
+		p:nth-of-type(4) {
+			@include logoType(2);
+			@include border(bottom);
+
+			// margin: 1rem;
+			padding: 1rem;
+			// background-color: $blue-green;
+			color: $apple-blue;
+		}
+	}
+	// background-color: red;
+}

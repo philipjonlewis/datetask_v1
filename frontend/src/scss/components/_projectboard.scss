@@ -1,0 +1,32 @@
+@use '../abstracts' as *;
+
+
+.projectboard {
+	@include flex(row, space-between, flex-start);
+	@include dim100();
+	@include transition;
+
+	// background-color: $apple-blue;
+	overflow: hidden;
+	position: relative;
+
+	.add-project-slider-btn-container {
+		width: 2.4rem;
+		height: 2.4rem;
+
+		// background-color: yellow;
+		position: absolute;
+		top: 1rem;
+		right: 1rem;
+		z-index: 50;
+		font-size: 2.4rem;
+		color: $apple-red;
+	}
+
+	.projectboard-container {
+		// @include flex(row, space-between, center);
+		// padding: 1rem;
+		@include dim100();
+		overflow-y: auto;
+	}
+}

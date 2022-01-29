@@ -1,0 +1,13 @@
+@use '../abstracts' as *;
+
+.home-container {
+	@include flex(column, flex-start, flex-start);
+	@include dim100();
+	@include transition();
+
+	// background-color: $bg-gray;
+	padding: 1rem;
+	.user-greetings {
+		@include logoType(2);
+	}
+}

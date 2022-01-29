@@ -1,0 +1,23 @@
+@use '../abstracts' as *;
+
+
+.workspace-container {
+	@include flex(row, flex-start, flex-start);
+	@include dimensionsWH(100vw, 100vh);
+
+	background-color: $white-warm;
+	overflow: hidden;
+
+	.workspace-proper {
+		@include dim100();
+	}
+
+	.workspace-router-container {
+		@include dimensionsWH(100%, calc(100% - 5rem));
+	}
+
+	.navbars-container {
+		box-shadow: 0px 5px 4px -5px #cccccc;
+		@include dimensionsWH(100%, 5rem);
+	}
+}

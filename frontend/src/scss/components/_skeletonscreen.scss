@@ -1,0 +1,136 @@
+@use '../abstracts' as *;
+
+.skeleton-container {
+	@include flex(row, flex-start, flex-start);
+	@include dim100();
+	@include transition();
+	@include fadeAnimation();
+
+	overflow: hidden;
+
+	padding: 1rem;
+	margin-left: 1rem;
+	// margin-top: 1rem;
+	// background-color: red;
+
+	%loading-shared {
+		@include borderRadius();
+		@include flex(column, flex-start, flex-start);
+
+		padding: 1rem;
+
+		margin-left: 1rem;
+		margin-top: 1rem;
+
+		opacity: 0.4;
+		background-color: #eeeeee;
+	}
+
+	.skeleton-card-01 {
+		@include dimensionsWH(20rem, 90%);
+		min-width: 20rem;
+		@extend %loading-shared;
+	}
+
+	.skeleton-card-02 {
+		@include dimensionsWH(20rem, 60%);
+		min-width: 20rem;
+		@extend %loading-shared;
+	}
+
+	.skeleton-card-03 {
+		@include dimensionsWH(20rem, 40%);
+		min-width: 20rem;
+		@extend %loading-shared;
+	}
+
+	%skeleton-shared {
+		@include borderRadius();
+
+		margin-bottom: 1rem;
+		padding-top: 1rem;
+		background-color: rgb(235, 235, 255);
+	}
+
+	.skeleton-box-xl {
+		@extend %skeleton-shared;
+		@include dimensionsWH(100%, 20%);
+		animation: skeleton-animation-01 5s infinite;
+	}
+
+	.skeleton-box-l {
+		@extend %skeleton-shared;
+		@include dimensionsWH(100%, 10%);
+		animation: skeleton-animation-01 5s infinite;
+	}
+
+	.skeleton-box-text-xl {
+		@extend %skeleton-shared;
+		@include dimensionsWH(100%, 2%);
+		animation: skeleton-animation-02 5s infinite;
+	}
+
+	.skeleton-box-text-l {
+		@extend %skeleton-shared;
+		@include dimensionsWH(80%, 2%);
+		animation: skeleton-animation-03 8s infinite;
+	}
+
+	.skeleton-box-text-m {
+		@extend %skeleton-shared;
+		@include dimensionsWH(60%, 2%);
+		animation: skeleton-animation-02 10s infinite;
+	}
+
+	.skeleton-box-text-s {
+		@extend %skeleton-shared;
+		@include dimensionsWH(30%, 2%);
+		animation: skeleton-animation-03 8s infinite;
+	}
+}
+
+@keyframes skeleton-animation-01 {
+	0% {
+		background-color: #dbdbdb;
+	}
+	25% {
+		background-color: #e6e6e6;
+	}
+	50% {
+		background-color: rgb(241, 241, 241);
+	}
+	75% {
+		background-color: #cccccc;
+	}
+	100% {
+		background-color: #dbdbdb;
+	}
+}
+
+@keyframes skeleton-animation-02 {
+	0% {
+		background-color: #cacaca;
+	}
+
+	50% {
+		background-color: rgb(241, 241, 241);
+	}
+
+	100% {
+		background-color: #cacaca;
+	}
+}
+
+@keyframes skeleton-animation-03 {
+	0% {
+		background-color: #cacaca;
+	}
+
+	50% {
+		background-color: rgb(209, 209, 209);
+	}
+
+	100% {
+		background-color: #dbdbdb;
+	}
+}

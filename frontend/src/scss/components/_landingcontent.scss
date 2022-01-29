@@ -1,0 +1,40 @@
+@use '../abstracts' as *;
+
+
+.landingPage-container-content {
+	@include flex(column, flex-start, center);
+	@include dimensionsWH(100vw, 100vh);
+	position: relative;
+	.homepage-container {
+		@include flex(row, center, center);
+		@include dimensionsWH(100%, 100%);
+
+		.hero-container {
+			@include flex(column, flex-start, center);
+			@include dim100();
+
+			// @include centerBackground(
+			// 	'https://web3canvas.com/wp-content/uploads/2018/12/custom-illustration-isometric.jpg'
+			// );
+
+			.description {
+				width: 40%;
+				text-align: center;
+				padding-top: 3rem;
+			}
+
+			h1 {
+				@include logoType(3);
+			}
+
+			h4 {
+				@include logoType(1);
+			}
+
+			p {
+				padding-top: 1rem;
+				font-size: 0.8rem;
+			}
+		}
+	}
+}

@@ -1,0 +1,157 @@
+@use '../abstracts' as *;
+
+
+.task-container {
+	@include flex(row, flex-start, center);
+	@include transition;
+
+	position: relative;
+	height: 6rem;
+	margin-bottom: 2rem;
+
+	&-icons {
+		// background-color: red;
+		@include flex(column, space-between, center);
+		@include transition;
+		@include dimensionsWH(10%, 100%);
+
+		color: $apple-gray-dark;
+		font-size: 1.2rem;
+		opacity: 0;
+
+		.hide-btn {
+			visibility: hidden;
+		}
+
+		&:hover {
+			color: $gray-dark;
+		}
+	}
+
+	&-content {
+		@include flex(row, flex-start, flex-start);
+		@include borderNormal();
+		@include dimensionsWH(80%, 100%);
+		@include transition;
+
+		margin-left: 0.5rem;
+		padding-left: 0.5rem;
+		word-wrap: break-word;
+		white-space: initial;
+
+		form {
+			@include dim100();
+			position: relative;
+
+			textarea {
+				@include dim100();
+				@include dimensionsWH(90%, 100%);
+
+				@include logoType(0.8);
+				padding: 0.2rem;
+				border: none;
+				outline: none;
+				resize: none;
+				word-wrap: break-word;
+				white-space: initial;
+				background-color: transparent;
+				// background-color: red;
+			}
+
+			button {
+				@include dimensionsWH(1.6rem, 1.6rem);
+				@include flex(column, center, center);
+				@include logoType(1.4);
+
+				border-radius: 80%;
+				// color: $white-warm;
+				// background-color: $apple-blue;
+				// background-color: #4b4b91;
+				opacity: 0.5;
+				border: none;
+				outline: none;
+				text-decoration: none;
+				position: absolute;
+				bottom: 0.5rem;
+				right: 1.8rem;
+
+				&:hover {
+					opacity: 1;
+				}
+			}
+
+			.is-editing {
+				background-color: rgb(247, 247, 247);
+				border-radius: 0.4rem;
+			}
+		}
+	}
+
+	&-delete {
+		// background-color: red;
+		@include flex(column, flex-start, center);
+		@include transition;
+		@include dimensionsWH(10%, 100%);
+
+		position: absolute;
+		top: 0;
+		right: 0.6rem;
+		color: $red;
+		font-size: $icon-size;
+		opacity: 0;
+	}
+}
+
+.is-deleting {
+	display: none;
+}
+
+.is-priority-content {
+	border: none;
+	color: $apple-orange;
+
+	@include borderPriority();
+	@include logoType(0.9);
+	textarea {
+		color: $apple-orange;
+	}
+}
+
+.is-priority-button {
+	color: $apple-orange;
+}
+
+.is-priority-today-content {
+	border: none;
+	color: $apple-red;
+
+	@include borderPriorityToday();
+	@include logoType(0.9);
+	textarea {
+		color: $apple-red;
+	}
+}
+
+.is-priority-today-button {
+	color: $apple-red;
+}
+
+.is-completed-content {
+	opacity: 0.5;
+}
+
+.is-completed-button {
+	// @include dimensionsWH(1rem, 1rem);
+	// @include flex(column, center, center);
+	// @include borderRadius();
+
+	// border: 1px solid gray;
+	// // @include dim100();
+	// // color: $white-warm;
+	// // background-color: #bebebe;
+	// background-color: $gray-light;
+
+	// span {
+	// 	display: none;
+	// }
+}
